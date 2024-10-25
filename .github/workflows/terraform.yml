@@ -7,11 +7,11 @@ on:
   pull_request:
     branches:
       - main
-  workflow_dispatch:
+  workflow_dispatch: # For manual triggers
 
 env:
   TF_VAR_region: "ap-southeast-1"
-  TF_VAR_profile: "sheikh"
+  TF_VAR_profile: "sheikh"  # Optional if you're using secrets for credentials directly
 
 jobs:
   terraform:
@@ -32,7 +32,7 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
         with:
-          terraform_version: 1.5.0
+          terraform_version: 1.5.0  # Use the appropriate version here
 
       - name: Terraform Init
         run: terraform init
@@ -40,17 +40,9 @@ jobs:
       - name: Terraform Validate
         run: terraform validate
 
-#      - name: Terraform Plan
-#        id: plan
-#        run: terraform plan -out=tfplan
-
-
       - name: Terraform Plan
         id: plan
-        run: |
-          export TF_LOG=DEBUG
-          terraform plan -out=tfplan
-
+        run: terraform plan -out=tfplan
 
       - name: Terraform Apply
         if: github.event_name != 'pull_request'
