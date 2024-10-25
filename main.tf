@@ -100,5 +100,5 @@ output "public_ipv4_address" {
 }
 
 # Define variables for AWS credentials
-variable "aws_access_key_id" {}
-variable "aws_secret_access_key" {}
+#variable "aws_access_key_id" {}
+#variable "aws_secret_access_key" {}
