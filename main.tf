@@ -1,9 +1,9 @@
-# Configure the AWS provider with access keys from environment variables
-provider "aws" {
-  region                  = "ap-southeast-1"
-  access_key              = var.aws_access_key_id
-  secret_key              = var.aws_secret_access_key
-}
+## Configure the AWS provider with access keys from environment variables
+#provider "aws" {
+#  region                  = "ap-southeast-1"
+#  access_key              = var.aws_access_key_id
+#  secret_key              = var.aws_secret_access_key
+#}
 
 # Create default VPC if one does not exist
 resource "aws_default_vpc" "default_vpc" {
