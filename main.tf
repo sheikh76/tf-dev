@@ -1,7 +1,7 @@
 # Configure the AWS provider with access keys from environment variables
 provider "aws" {
   region                  = "ap-southeast-1"
-  access_key              = var.AWS_ACCESS_KEY_ID
+  access_key              = var.aws_access_key_id
   secret_key              = var.aws_secret_access_key
 }
 
