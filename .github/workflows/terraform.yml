@@ -40,9 +40,17 @@ jobs:
       - name: Terraform Validate
         run: terraform validate
 
+#      - name: Terraform Plan
+#        id: plan
+#        run: terraform plan -out=tfplan
+
+
       - name: Terraform Plan
         id: plan
-        run: terraform plan -out=tfplan
+        run: |
+          export TF_LOG=DEBUG
+          terraform plan -out=tfplan
+
 
       - name: Terraform Apply
         if: github.event_name != 'pull_request'
